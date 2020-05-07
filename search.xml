@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hello_world</title>
-    <url>/2020/05/07/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"hello,world"</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="万事第一句：hello-world-奥利给！！！"><a href="#万事第一句：hello-world-奥利给！！！" class="headerlink" title="万事第一句：hello,world  奥利给！！！"></a>万事第一句：hello,world  奥利给！！！</h2>]]></content>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建博客1--部署服务</title>
-    <url>/2020/05/07/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21-%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在win10上优雅的敲命令行</title>
     <url>/2020/05/07/%E5%9C%A8win10%E4%B8%8A%E4%BC%98%E9%9B%85%E7%9A%84%E6%95%B2%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="问题-amp-需求"><a href="#问题-amp-需求" class="headerlink" title="问题&amp;需求"></a>问题&amp;需求</h2><p>离开了linux强大的terminal，window好像没有那么香,但是在win10的terminal又有好几个让人难受的地方：</p>
@@ -58,6 +39,25 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here]</span><br><span class="line"></span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here]</span><br><span class="line"> </span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>windows,shell,blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hello_world</title>
+    <url>/2020/05/07/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"hello,world"</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="万事第一句：hello-world-奥利给！！！"><a href="#万事第一句：hello-world-奥利给！！！" class="headerlink" title="万事第一句：hello,world  奥利给！！！"></a>万事第一句：hello,world  奥利给！！！</h2>]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建博客1--部署服务</title>
+    <url>/2020/05/07/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21-%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+      <tags>
+        <tag>blog</tag>
       </tags>
   </entry>
 </search>
