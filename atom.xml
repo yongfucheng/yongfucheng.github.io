@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yousef.top/"/>
-  <updated>2020-04-22T04:21:58.769Z</updated>
+  <updated>2020-05-07T04:36:16.310Z</updated>
   <id>http://yousef.top/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>helle</title>
-    <link href="http://yousef.top/2020/04/22/helle/"/>
-    <id>http://yousef.top/2020/04/22/helle/</id>
-    <published>2020-04-22T04:21:58.000Z</published>
-    <updated>2020-04-22T04:21:58.769Z</updated>
+    <title>在win10上优雅的敲命令行</title>
+    <link href="http://yousef.top/2020/05/07/%E5%9C%A8win10%E4%B8%8A%E4%BC%98%E9%9B%85%E7%9A%84%E6%95%B2%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    <id>http://yousef.top/2020/05/07/%E5%9C%A8win10%E4%B8%8A%E4%BC%98%E9%9B%85%E7%9A%84%E6%95%B2%E5%91%BD%E4%BB%A4%E8%A1%8C/</id>
+    <published>2020-05-07T03:54:59.000Z</published>
+    <updated>2020-05-07T04:36:16.310Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>离开了linux强大的terminal，window好像没有那么香,但是在win10的terminal又有好几个让人难受的地方：</p><ul><li><strong>win+R</strong>打开运行，输入<strong>cmd</strong>，然后再调整路径，每次打开操作都非常的痛苦</li><li>按住shift，点击右键，出现powershell，勉强方便一些，还是有些麻烦</li><li><strong>cmd</strong>中有些命令不能敲，如常用的<code>ls</code>(替换成了<code>dir</code>)，相对来说，<strong>powershell</strong>比<strong>cmd</strong>保留了linux的部分命令</li></ul><p>正因为如此，我每次写博客的时候开powershell，切路径都要非常麻烦</p><blockquote><p>所以说，在这个世界上，懒人因为觉得麻烦，然后开始折腾，再然后改变了世界</p></blockquote><p>来自懒人的构想就是：</p><ol><li>进入一个文件夹，右键一点直接蹦出powershell(不需要另一只手按住shift)，说白了，就是将powershell固定到右键的栏目中去</li></ol><p>话不多说，直接上注册表</p><p><strong>Windows PowerShell（非管理员）</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\powershell_here]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"PowerShell"</span></span><br><span class="line"><span class="string">"Icon"</span>=<span class="string">"powershell.exe"</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\powershell_here\<span class="built_in">command</span>]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\""</span></span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\powershell_here]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"PowerShell"</span></span><br><span class="line"><span class="string">"Icon"</span>=<span class="string">"powershell.exe"</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\powershell_here\<span class="built_in">command</span>]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\""</span></span><br></pre></td></tr></table></figure><p><strong>Windows PowerShell（管理员）</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\powershell_admin_here]</span><br><span class="line"> </span><br><span class="line">@="PowerShell（admin）"</span><br><span class="line">"Icon"="powershell.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\powershell_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" Start-Process PowerShell -verb RunAs"</span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\powershell_admin_here]</span><br><span class="line"> </span><br><span class="line">@="PowerShell（admin）"</span><br><span class="line">"Icon"="powershell.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\powershell_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" Start-Process PowerShell -verb RunAs"</span><br></pre></td></tr></table></figure><blockquote><p><strong>步骤：</strong></p><ul><li>将上述代码保存为(your_filename).reg</li><li>打开这个reg文件</li><li>ok</li></ul></blockquote><p>然后右键就会奇迹般的出现powershell的选项，如图：<img src="/" class="lazyload" data-src="http://q971qawgs.bkt.clouddn.com/blog/EDUCUJTD%5D$G%5D%1$JA2XQB4I.png"  alt="enter description here"></p><p>如果右键想固定cmd的话，也有代码：<br><strong>cmd（非管理员）</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]</span><br><span class="line"></span><br><span class="line">@="cmd"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command]</span><br><span class="line"> </span><br><span class="line">@="\"C:\\Windows\\System32\\cmd.exe\""</span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here]</span><br><span class="line"> </span><br><span class="line">@="cmd"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command]</span><br><span class="line"> </span><br><span class="line">@="\"C:\\Windows\\System32\\cmd.exe\""</span><br></pre></td></tr></table></figure><p><strong>cmd（管理员）</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here]</span><br><span class="line"></span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here]</span><br><span class="line"> </span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="“windows”,&quot;shell&quot;,&quot;blog&quot;" scheme="http://yousef.top/tags/%E2%80%9Cwindows%E2%80%9D-shell-blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建博客1--部署服务</title>
+    <link href="http://yousef.top/2020/05/07/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21-%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://yousef.top/2020/05/07/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A21-%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/</id>
+    <published>2020-05-07T03:53:37.000Z</published>
+    <updated>2020-05-07T03:54:05.205Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
     
@@ -35,6 +59,32 @@
     </summary>
     
     
+    
+      <category term="“blog”" scheme="http://yousef.top/tags/%E2%80%9Cblog%E2%80%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hello_world</title>
+    <link href="http://yousef.top/2020/05/07/hello-world/"/>
+    <id>http://yousef.top/2020/05/07/hello-world/</id>
+    <published>2020-05-07T03:39:31.000Z</published>
+    <updated>2020-05-07T03:51:28.079Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"hello,world"</span>)</span><br></pre></td></tr></table></figure><h4 id="万事第一句：hello-world-奥利给！！！"><a href="#万事第一句：hello-world-奥利给！！！" class="headerlink" title="万事第一句：hello,world  奥利给！！！"></a>万事第一句：hello,world  奥利给！！！</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="python" scheme="http://yousef.top/tags/python/"/>
     
   </entry>
   
