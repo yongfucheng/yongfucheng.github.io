@@ -56,7 +56,9 @@
 <p><strong>cmd（管理员）</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here]</span><br><span class="line"></span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here]</span><br><span class="line"> </span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>windows,shell,注册表</tag>
+        <tag>windows</tag>
+        <tag>shell</tag>
+        <tag>注册表</tag>
       </tags>
   </entry>
 </search>
