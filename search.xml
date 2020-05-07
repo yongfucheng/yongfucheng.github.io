@@ -50,7 +50,7 @@
 <li>ok</li>
 </ul>
 </blockquote>
-<p>然后右键就会奇迹般的出现powershell的选项，如图：<img src="/" class="lazyload" data-src="http://q971qawgs.bkt.clouddn.com/blog/EDUCUJTD%5D$G%5D%1$JA2XQB4I.png"  alt="enter description here"></p>
+<p>然后右键就会奇迹般的出现powershell的选项，如图：<img src="/" class="lazyload" data-src="http://q971qawgs.bkt.clouddn.com/blog/EDUCUJTD%5D%24G%5D%251%24JA2XQB4I.png"  alt="enter description here"></p>
 <p>如果右键想固定cmd的话，也有代码：<br><strong>cmd（非管理员）</strong></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here]</span><br><span class="line"></span><br><span class="line">@="cmd"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_here\command]</span><br><span class="line"> </span><br><span class="line">@="\"C:\\Windows\\System32\\cmd.exe\""</span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here]</span><br><span class="line"> </span><br><span class="line">@="cmd"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_here\command]</span><br><span class="line"> </span><br><span class="line">@="\"C:\\Windows\\System32\\cmd.exe\""</span><br></pre></td></tr></table></figure>
 <p><strong>cmd（管理员）</strong></p>
