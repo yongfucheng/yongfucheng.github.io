@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hello_world</title>
+    <url>/2020/05/07/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"hello,world"</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="万事第一句：hello-world-奥利给！！！"><a href="#万事第一句：hello-world-奥利给！！！" class="headerlink" title="万事第一句：hello,world  奥利给！！！"></a>万事第一句：hello,world  奥利给！！！</h2>]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在win10上优雅的敲命令行</title>
     <url>/2020/05/07/%E5%9C%A8win10%E4%B8%8A%E4%BC%98%E9%9B%85%E7%9A%84%E6%95%B2%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="问题-amp-需求"><a href="#问题-amp-需求" class="headerlink" title="问题&amp;需求"></a>问题&amp;需求</h2><p>离开了linux强大的terminal，window好像没有那么香,但是在win10的terminal又有好几个让人难受的地方：</p>
@@ -15,10 +26,9 @@
 </blockquote>
 <h2 id="构想"><a href="#构想" class="headerlink" title="构想"></a>构想</h2><p>来自懒人的构想就是：</p>
 <ol>
-<li><p>进入一个文件夹，右键一点直接蹦出powershell(不需要另一只手按住shift)，说白了，就是将powershell固定到右键的栏目中去</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>话不多说，直接上注册表</p>
-</li>
+<li>进入一个文件夹，右键一点直接蹦出powershell(不需要另一只手按住shift)，说白了，就是将powershell固定到右键的栏目中去  </li>
 </ol>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>话不多说，直接上注册表</p>
 <p><strong>Windows PowerShell（非管理员）</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\powershell_here]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"PowerShell"</span></span><br><span class="line"><span class="string">"Icon"</span>=<span class="string">"powershell.exe"</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\powershell_here\<span class="built_in">command</span>]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\""</span></span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\powershell_here]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"PowerShell"</span></span><br><span class="line"><span class="string">"Icon"</span>=<span class="string">"powershell.exe"</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\powershell_here\<span class="built_in">command</span>]</span><br><span class="line"> </span><br><span class="line">@=<span class="string">"\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\""</span></span><br></pre></td></tr></table></figure>
 <p><strong>Windows PowerShell（管理员）</strong></p>
@@ -39,17 +49,6 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">; 添加到桌面右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here]</span><br><span class="line"></span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br><span class="line"></span><br><span class="line">; 添加到文件夹右键菜单</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here]</span><br><span class="line"> </span><br><span class="line">@="cmd（admin）"</span><br><span class="line">"Icon"="cmd.exe"</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\cmd_admin_here\command]</span><br><span class="line"> </span><br><span class="line">@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k, pushd,%V' -Verb RunAs\""</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>windows,shell,blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hello_world</title>
-    <url>/2020/05/07/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"hello,world"</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="万事第一句：hello-world-奥利给！！！"><a href="#万事第一句：hello-world-奥利给！！！" class="headerlink" title="万事第一句：hello,world  奥利给！！！"></a>万事第一句：hello,world  奥利给！！！</h2>]]></content>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
